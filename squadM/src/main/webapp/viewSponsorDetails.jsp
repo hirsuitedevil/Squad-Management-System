@@ -57,33 +57,25 @@
 							<table class="table">
 								<thead>
 									<tr>
-										<th>Team Name</th>
+										<th>Sponsor ID</th>
 										<th>Sponsor Name</th>
-										<th>Sponsorship Amount</th>
+										<th>Sponsorship Amount(in Crores)</th>
 									</tr>
 								</thead>
 								<%
-									String status = null;
 										Connection con = DatabaseConnection.getConnection();
 										Statement statement = con.createStatement();
-										ResultSet resultset = statement.executeQuery("select * from  tblsponsor_team");
+										ResultSet resultset = statement.executeQuery("select * from  tblsponsor");
 										while (resultset.next()) {
-											int sponsorid=resultset.getInt(1);
-											int teamid=resultset.getInt(2);
-											Statement stat1 = con.createStatement();
-											Statement stat2 = con.createStatement();
-											ResultSet result1 = stat1.executeQuery("select * from  tblsponsor where Sponsor_ID=" +"'"+ sponsorid+ "'");
-											ResultSet result2 = stat2.executeQuery("select * from  tblteam where Team_ID=" +"'"+ teamid+ "'");
-											while(result1.next() && result2.next()){
+											
 								%>
 								<tr>
-									<td><%=result2.getString(2)%></td>
-									<td><%=result1.getString(2)%></td>
+									<td><%=resultset.getString(1)%></td>
+									<td><%=resultset.getString(2)%></td>
 									<td><%=resultset.getString(3)%></td>
 								</tr>
 								<%
 											}
-											 	}
 								%>
 							</table>
 

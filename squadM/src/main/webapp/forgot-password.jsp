@@ -17,7 +17,12 @@
 <link rel="stylesheet" href="assets/css/styles.css">
 
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-
+<style> 
+body {
+  background-image: url("https://wallpapercave.com/wp/wp4059913.jpg");
+  
+}
+</style>
 </head>
 <body>
 	<div class="sufee-login d-flex align-content-center flex-wrap">

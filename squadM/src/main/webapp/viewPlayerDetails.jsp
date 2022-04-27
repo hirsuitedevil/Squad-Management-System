@@ -48,6 +48,12 @@
 					<div class="card">
 						<div class="card-header">
 							<strong class="card-title">View Player</strong>
+							<div>Sort By: <a href="Sortby.jsp?viewid=Runs" name="Runs">Runs</a> <a href="Sortby.jsp?viewid=Wickets">Wickets</a>
+							<a href="Sortby.jsp?viewid=Centuries" name="Centuries">Centuries</a> <a href="Sortby.jsp?viewid=BatSR" name="BatSR">BatSR</a>
+							<a href="Sortby.jsp?viewid=Economy" name="Economy">Economy</a> <a href="Sortby.jsp?viewid=BowlSR" name="BowlSR">BowlSR</a>
+                             
+                              
+                             </div>
 						</div>
 						<div class="card-body">
 							<table class="table">
@@ -60,9 +66,9 @@
 										<th>Runs</th>
 										<th>Batting Strike Rate</th>
 										<th>Centuries</th>
-										<th>Wickets</th>
 										<th>Bowling Strike Rate</th>
 										<th>Economy</th>
+										<th>Wickets</th>
 										<th>Captain</th>
 									</tr>
 								</thead>

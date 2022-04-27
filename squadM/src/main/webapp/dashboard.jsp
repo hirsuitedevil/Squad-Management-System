@@ -13,7 +13,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
 <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
 <link rel="stylesheet" href="assets/css/style.css">
-<script src="https://kit.fontawesome.com/d0f77abc70.js" crossorigin="anonymous"></script>
+<link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet"/>
+<script src="https://kit.fontawesome.com/d0f77abc70.js"></script>
 </head>
 
 <body>
@@ -49,10 +50,10 @@
 					<div class="card">
 						<div class="card-body">
 							<div class="stat-widget-five">
-								<div class="stat-icon dib flat-color-1">
-								<i class="fa-solid fa-cricket-bat-ball"></i>
+							<div class="stat-icon dib flat-color-2">
 								</div>
 								<div class="stat-content">
+								
 									<div class="text-left dib">
 										<div class="stat-text">
 											<span class="count"><%=count_today_vehentries%> </span>

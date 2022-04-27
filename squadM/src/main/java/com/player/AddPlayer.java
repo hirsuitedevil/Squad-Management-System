@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.Random;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,8 +23,6 @@ public class AddPlayer extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Random rand = new Random();
-		int PlayerNumber = rand.nextInt(900000) + 100000 ;
 		HttpSession hs = request.getSession();
 		String team_id = request.getParameter("teamid");
 		String playername = request.getParameter("playername");
@@ -60,8 +57,8 @@ public class AddPlayer extends HttpServlet {
 					 cap=1;
 				}
 				addPlayer = statement.executeUpdate(
-						"insert into tblPlayer(PlayerNumber,TeamID,PlayerName,Role,Runs,BatSR,Centuries,BowlSR,Economy,Wickets,IsCap)values('"
-								+ PlayerNumber  + "','" + team_id + "','" + playername + "','"
+						"insert into tblPlayer(TeamID,PlayerName,Role,Runs,BatSR,Centuries,BowlSR,Economy,Wickets,IsCap)values('"
+								+ team_id + "','" + playername + "','"
 								+ role + "','" + runs + "','"+ batsr + "','" + centuries + "','"+ bowlsr + "','"+ economy + "','" + wickets + "','"+ cap +"')");
 			} else {
 				String message="Pool is full, Wait for sometime";

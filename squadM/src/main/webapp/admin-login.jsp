@@ -10,7 +10,14 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
 <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
+<link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
 <link rel="stylesheet" href="assets/css/styles.css">
+<style> 
+body {
+  background-image: url("https://wallpapercave.com/wp/wp4059913.jpg");
+  
+}
+</style>
 </head>
 <body>
 		<div class="container1">
