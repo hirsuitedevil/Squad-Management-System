@@ -1,0 +1,240 @@
+
+create table tblteam (
+Team_ID int primary key,
+Team_Name varchar(45),
+Team_Rank varchar(45),
+Ground_ID int);
+
+create table tblground(
+Ground_ID int primary key,
+Ground_Name varchar(45),
+City varchar(45));
+
+alter table tblteam add constraint foreign key (Ground_ID) references tblground (Ground_ID);
+
+create table tblsponsor (
+Sponsor_ID int primary key,
+Sponsor_Name varchar(45),
+Amount int);
+
+create table tblplayer(
+Player_ID int primary key,
+Team_ID int,
+Player_Name varchar(45),
+Role varchar(45),
+Runs int,
+BattingStrikeRate decimal(5,2),
+Centuries int,
+BowlingStrikeRate decimal(5,2),
+BowlingEconomy decimal(5,2),
+NumberOfWickets int,
+isCaptain int);
+
+alter table tblplayer add constraint foreign key (Team_ID) references tblteam (Team_ID);
+
+create table tblsponsor_team(
+Sponsor_ID int,
+Team_ID int);
+
+alter table tblsponsor_team add constraint foreign key (Sponsor_ID) references tblsponsor (Sponsor_ID);
+alter table tblsponsor_team add constraint foreign key (Team_ID) references tblteam (Team_ID);
+
+
+create table tblcoach(
+Coach_ID int primary key,
+Coach_Name varchar(45),
+Experience int,
+Role varchar(45),
+Team_ID int);
+
+alter table tblcoach add constraint foreign key (Team_ID) references tblteam (Team_ID);
+
+create table tblplayer_capacity(
+Player_Capacity int);
+
+create table tblteam_capacity(
+Team_Seat int);
+
+insert into tblground values (1,"M. Chinnaswamy Stadium","Bangalore");
+insert into tblground values (2,"M. A. Chidambaram Stadium","Chennai");
+insert into tblground values (3,"Wankhede Stadium","Mumbai");
+insert into tblground values (4," Eden Gardens","Kolkata");
+insert into tblground values (5,"Sawai Mansingh Stadium","Jaipur");
+insert into tblground values (6," Rajiv Gandhi International Cricket Stadium","Hyderabad");
+
+
+insert into tblteam values (1,"RCB",6,1);
+insert into tblteam values (2,"CSK",2,2);
+insert into tblteam values (3,"MI",1,3);
+insert into tblteam values (4,"KKR",3,4);
+insert into tblteam values (5,"SRH",4,6);
+insert into tblteam values (6,"RR",5,5);
+
+
+insert into tblcoach values (1,"Simon Katich",4,"Head Coach",1);
+insert into tblcoach values (2,"Sridhara Sriram",6,"Batting Coach",1);
+insert into tblcoach values (3,"Sridhara Sriram",6,"Bowling Coach",1);
+insert into tblcoach values (4,"Stephen Fleming",10,"Head Coach",2);
+insert into tblcoach values (5,"Michael Hussey",6,"Batting Coach",2);
+insert into tblcoach values (6,"Lakshmipathy Balaji",5,"Bowling Coach",2);
+insert into tblcoach values (7,"Mahela Jayawardhane",5,"Head Coach",3);
+insert into tblcoach values (8,"Sachin Tendulakar ",5,"Batting Coach",3);
+insert into tblcoach values (9,"Shane Bond",4,"Bowling Coach",3);ss
+insert into tblcoach values (10,"Brendon McCullum",3,"Head Coach",4);
+insert into tblcoach values (11,"Abhishek Nayar",3,"Batting Coach",4);
+insert into tblcoach values (12,"Kyle Mills",2,"Bowling Coach",4);
+insert into tblcoach values (13,"Andrew McDonald",5,"Head Coach",5);
+insert into tblcoach values (14,"Amol Muzumdar",5,"Batting Coach",5);
+insert into tblcoach values (15,"Rob Cassell",5,"Bowling Coach",5);
+insert into tblcoach values (16,"Trevor Byaliss",10,"Head Coach",6);
+insert into tblcoach values (17,"VVS Laxman",6,"Batting Coach",6);
+insert into tblcoach values (18,"Muttiah Murlitharan",5,"Bowling Coach",6);
+
+
+insert into tblplayer values (000001,1,"Faf du Plessis","Batsman",2375,131.08,0,0,16,0,1);
+insert into tblplayer values (000002,1,"Virat Kohli","Batsman",6283,129.94,5,62.75,8.79,4,0);
+insert into tblplayer values (000003,1,"Glenn Maxwell","AllRounder",2018,151.84,0,29.18,8.55,22,0);
+insert into tblplayer values (000004,1,"Harshal Patel","All-rounder",187,134.53,0,16.2,8.58,78,0);
+insert into tblplayer values (000005,1,"Wanindu Hasranga","AllRounder",1,50,0,0,10,0,0);
+insert into tblplayer values (000006,1,"Josh Hazlewood","Bowler",0,0,0,22.5,7.93,12,0);
+insert into tblplayer values (000007,1,"Mohammed Siraj","Bowler",66,86.84,0,20.56,8.38,50,0);
+insert into tblplayer values (000008,1,"Dinesh Karthik","Wicketkeeper",4046,129.72,0,0,0,0,0);
+insert into tblplayer values (000009,1,"Anuj Rawat","Wicketkeeper",0,0,0,0,0,0,0);
+insert into tblplayer values (000010,1,"Shabaz Ahmed","All-rounder",60,111.11,0,13.33,6.8,9,0);
+insert into tblplayer values (000011,1,"David Willey","All-rounder",0,0,0,30,9.5,2,0);
+insert into tblplayer values (000012,2,"Ravi Jadeja","Allrounder",2386,128.14,0,23.67,7.61,127,1);
+insert into tblplayer values (000013,2,"Deepak Chahar","Bowler",79,138.59,0,22.44,7.8,59,0);
+insert into tblplayer values (000014,2,"MS Dhoni","WicketKeeper",4746,135.83,0,0,0,0,0);
+insert into tblplayer values (000015,2,"Moeen Ali","All-rounder",666,146.37,0,25.68,6.84,16,0);
+insert into tblplayer values (000016,2,"Ambati Rayudu","Batsman",3916,127.47,1,0,0,0,0);
+insert into tblplayer values (000017,2,"Ruturaj Gaikwad","Batsman",839,132.12,1,0,0,0,0);
+insert into tblplayer values (000018,2,"Dwanye Bravo","All-rounder",1537,130.25,0,17.44,8.36,167,0);
+insert into tblplayer values (000019,2,"Shivam Dube","All-rounder",399,120.54,0,23.5,8.29,4,0);
+insert into tblplayer values (000020,2,"Chris Jordan","All-rounder",64,112.2,0,18.36,9.12,25,0);
+insert into tblplayer values (000021,2,"Robin Uthappa","Batsman",4722,130.15,0,0,0,0,0);
+insert into tblplayer values (000022,2,"Mitchell Satner","All-rounder",32,139.13,0,21,7,6,0);
+insert into tblplayer values (000023,3,"Rohit Sharma","Batsman",5611,130.39,1,22.6,8.01,15,1);
+insert into tblplayer values (000024,3,"Ishan Kishan","WicketKeeper",1452,136.33,0,0,0,0,0);
+insert into tblplayer values (000025,3,"Jasprit  Bumrah","Bowler",56,96.55,0,18.63,7.42,130,0);
+insert into tblplayer values (000026,3,"Tim David","All-rounder",1,33.33,0,0,0,0,0);
+insert into tblplayer values (000027,3,"Jofra Archer","Bowler",195,157.25,0,17.93,7.13,46,0);
+insert into tblplayer values (000028,3,"Suryakumar Yadav","Batsman",2341,135.71,0,0,8,0,0);
+insert into tblplayer values (000029,3,"Kieron Pollard","All-rounder",3268,149.77,0,21.6,8.78,65,0);
+insert into tblplayer values (000030,3,"Dewald Brevis","Batsman",0,0,0,0,0,0,0);
+insert into tblplayer values (000031,3,"Daniel Sams","Bowler",6,75,0,108,8.5,1,0);
+insert into tblplayer values (000032,3,"Tilak Verma","Batsman",0,0,0,0,0,0,0);
+insert into tblplayer values (000033,3,"Muruguan Ashwin","Bowler",23,63.88,0,25.84,7.86,26,0);
+insert into tblplayer values (000034,4,"Shreyas Iyer","Batsman",2375,123.95,0,0,0,0,1);
+insert into tblplayer values (000035,4,"Andre Russel","AllRounder",1700,178.57,0,17.51,9.04,72,0);
+insert into tblplayer values (000036,4,"Nitish Rana","AllRounder",1820,123.95,0,16.42,8.03,7,0);
+insert into tblplayer values (000037,4,"Varun Charavarthy","Bowler",12,63.15,0,20.05,6.82,36,0);
+insert into tblplayer values (000038,4,"Venkatesh Iyer","AllRounder",370,128.47,0,17,8.11,3,0);
+insert into tblplayer values (000039,4,"Shivam Mavi","AllRounder",48,97.95,0,20.68,8.29,25,0);
+insert into tblplayer values (000040,4,"Pat Cummins","AllRounder",316,140.44,0,21.94,8.23,38,0);
+insert into tblplayer values (000041,4,"Sunil Narine","AllRounder",954,161.69,0,21,28,6.74,0);
+insert into tblplayer values (000042,4,"Umesh Yadav","Bowler",122,95.31,0,21.19,8.51,119,0);
+insert into tblplayer values (000043,4,"Sam Billings","WicketKeeper",334,133.6,0,0,0,0,0);
+insert into tblplayer values (000044,4,"Tim Southee","Bowler",118,124.21,0,30.96,8.67,31,0);
+insert into tblplayer values (000045,4,"Alex Hales","Batsman",148,125.42,0,0,0,0,0);
+insert into tblplayer values (000046,5,"Kane Williamson","Batsman",1885,131.26,0,0,10.33,0,1);
+insert into tblplayer values (000047,5,"Nicholas Pooran","WicketKeeper",606,154.98,0,0,0,0,0);
+insert into tblplayer values (000048,5,"Washington Sundar","All-rounder",217,111.28,0,27.77,6.93,27,0);
+insert into tblplayer values (000049,5,"Rahul Tripathi","Batsman",1385,136.31,0,0,12,0,0);
+insert into tblplayer values (000050,5,"Romario Shepherd","All-rounder",0,0,0,0,0,0,0);
+insert into tblplayer values (000051,5,"Abhishek Sharma","Batsman",241,139.3,0,18.85,8,7,0);
+insert into tblplayer values (000052,5,"Bhuvneshwar Kumar","Bowler",217,96.87,0,20.76,7.3,142,0);
+insert into tblplayer values (000053,5,"Marco Jansen","Bowler",0,0,0,18,7.5,2,0);
+insert into tblplayer values (000054,5,"Umran Malik","Bowler",0,0,0,36,8,2,0);
+insert into tblplayer values (000055,5,"Abdul Samad","Batsman",222,146.05,0,24,13.12,2,0);
+insert into tblplayer values (000056,5,"T Natrajan","Bowler",3,60,0,25.05,8.23,20,0);
+insert into tblplayer values (000057,6,"Sanju Samson","WicketKeeper",3068,134.2,3,0,0,0,1);
+insert into tblplayer values (000058,6,"Prasidh Krishna","Bowler",3,25,0,24.86,9.26,30,0);
+insert into tblplayer values (000059,6,"Jos Buttler","Batsman",1968,150,1,0,0,0,0);
+insert into tblplayer values (000060,6,"Shimron Hetmyer","Batsman",517,151.17,0,0,0,0,0);
+insert into tblplayer values (000061,6,"Trent Boult","Bowler",13,68.42,0,18.64,8.39,76,0);
+insert into tblplayer values (000062,6,"Devdutt Paddikal","Batsman",884,125.03,1,0,0,0,0);
+insert into tblplayer values (000063,6,"Yuzvendra Chahal","Bowler",32,41.02,0,17.61,7.59,139,0);
+insert into tblplayer values (000064,6,"Ravichandran Ashwin","Bowler",456,109.88,0,24.12,6.91,145,0);
+insert into tblplayer values (000065,6,"Yashasvi Jaiswal","Batsman",289,136.32,0,0,0,0,0);
+insert into tblplayer values (000066,6,"Riyan Parag","All-rounder",339,118.53,0,44.33,9.96,3,0);
+insert into tblplayer values (000067,6,"Navdeep Saini","Bowler",31,88.57,0,34.47,8.47,17,0);
+
+insert into tblsponsor values (1,"JIO",300);
+insert into tblsponsor values (2,"Dream 11",250);
+insert into tblsponsor values (3,"Happilo",70);
+insert into tblsponsor values (4,"Winzo",80);
+insert into tblsponsor values (5,"UnAcademy",120);
+insert into tblsponsor values (6,"CARS 24",100);
+insert into tblsponsor values (7,"KENT",80);
+insert into tblsponsor values (8,"SLICE",50);
+insert into tblsponsor values (9,"Marriot Bonvoy",150);
+insert into tblsponsor values (10,"Phone Pe",180);
+insert into tblsponsor values (11,"TVS Eurogrip",50);
+insert into tblsponsor values (12,"Nippon Paints",60);
+insert into tblsponsor values (13,"Muthoot Fincorp",80);
+insert into tblsponsor values (14,"PUMA",200);
+insert into tblsponsor values (15,"BOAT",120);
+insert into tblsponsor values (16,"MPL",180);
+
+alter table tblsponsor_team
+add column Sponsor_Amount int after Team_ID;
+ 
+insert into tblsponsor_team values (1,5,100);
+insert into tblsponsor_team values (2,5,80);
+insert into tblsponsor_team values (3,5,70);
+insert into tblsponsor_team values (1,4,100);
+insert into tblsponsor_team values (4,4,80);
+insert into tblsponsor_team values (5,4,120);
+insert into tblsponsor_team values (6,6,100);
+insert into tblsponsor_team values (2,6,80);
+insert into tblsponsor_team values (7,6,80);
+insert into tblsponsor_team values (1,3,100);
+insert into tblsponsor_team values (8,3,50);
+insert into tblsponsor_team values (9,3,150);
+insert into tblsponsor_team values (10,3,180);
+insert into tblsponsor_team values (2,2,80);
+insert into tblsponsor_team values (11,2,50);
+insert into tblsponsor_team values (12,2,60);
+insert into tblsponsor_team values (13,1,80);
+insert into tblsponsor_team values (14,1,200);
+insert into tblsponsor_team values (15,1,120);
+insert into tblsponsor_team values (16,1,180);
+
+
+
+
+
+
+update tblplayer 
+set centuries = 2 where Player_ID = 8;
+update tblplayer 
+set centuries = 4 where Player_ID = 1;
+update tblplayer 
+set centuries = 3 where Player_ID = 3;
+update tblplayer 
+set centuries = 3 where Player_ID = 12;
+update tblplayer 
+set centuries = 2 where Player_ID = 16;
+update tblplayer 
+set centuries = 4 where Player_ID = 21;
+update tblplayer 
+set centuries = 6 where Player_ID = 23;
+update tblplayer 
+set centuries = 2 where Player_ID = 28;
+update tblplayer 
+set centuries = 3 where Player_ID = 29;
+update tblplayer 
+set centuries = 2 where Player_ID = 28;
+update tblplayer 
+set centuries = 3 where Player_ID = 34;
+update tblplayer 
+set centuries = 2 where Player_ID = 36;
+update tblplayer 
+set centuries = 4 where Player_ID = 46;
+
+
+
+
+
+
+
